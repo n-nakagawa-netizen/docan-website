@@ -187,6 +187,7 @@ nav a:hover::after, .contact-link:hover::after { width: 100%; }
 .detail-content { min-width: 0; }
 .detail-lead { margin: 4px 0 85px; max-width: 820px; font-size: clamp(18px, 1.65vw, 25px); line-height: 2; letter-spacing: -.01em; }
 .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(40,49,54,.16); border: 1px solid rgba(40,49,54,.16); }
+.detail-concept .case-grid { grid-template-columns: repeat(3, 1fr); }
 .case-card { min-height: 370px; padding: clamp(30px, 3.2vw, 50px); background: rgba(247,248,246,.92); display: flex; flex-direction: column; }
 .case-card > span { font-size: 11px; font-weight: 700; letter-spacing: .16em; }
 .case-card h3 { margin: 45px 0 24px; font-size: clamp(20px, 1.7vw, 28px); line-height: 1.55; letter-spacing: -.035em; font-weight: 650; }
@@ -250,6 +251,7 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
 @keyframes detailTubeDrift { from { translate: 0 -9px; } to { translate: 0 12px; } }
 
 @media (max-width: 900px) {
+  .detail-concept .case-grid { grid-template-columns: 1fr; }
   .site-header { height: 72px; padding-top: env(safe-area-inset-top); grid-template-columns: 1fr auto; }
   nav, .contact-link { display: none; }
   .menu-button { position: relative; z-index: 102; display: flex; flex-direction: column; justify-content: center; gap: 7px; border: 0; background: transparent; width: 48px; height: 48px; margin-right: -8px; padding: 8px; color: inherit; cursor: pointer; }
@@ -565,7 +567,7 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
 
       <div class="hero-copy reveal is-visible">
         <p class="eyebrow">CREATE REAL RELATIONS</p>
-        <h1><span class="phrase">界隈と企業を</span><wbr><span class="phrase">つなぐ、</span><br><span class="phrase"><span class="accent-phrase">共感コンテキスト</span>の</span><br><span class="phrase">プロ集団</span></h1>
+        <h1><span class="phrase">界隈と企業の</span><wbr><span class="phrase">間に、</span><br><span class="phrase"><span class="accent-phrase">本物の共感</span>を</span><br><span class="phrase">生み出すPR集団</span></h1>
         <p class="hero-lead">価値観が多様化する時代に、<br>ブランドと界隈の間に本物の「共感」を生み出すPR会社です。</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#service">サービスを見る <span>↓</span></a>
@@ -604,13 +606,13 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
         <article class="service-row reveal" data-service="01">
           <span class="service-no">01</span>
           <h3><span class="phrase">コンセプト＆</span><br><span class="phrase">コンテキスト</span><wbr><span class="phrase">デザイン</span></h3>
-          <p>界隈と自社をつなぐコンセプト・物語・キーワードの企画開発。ファクトプロダクションまで一貫して支援。</p>
+          <p>界隈と自社をつなぐコンセプト・物語・キーワード・プロジェクトなどの企画開発。</p>
           <span class="service-arrow">↗</span>
         </article>
         <article class="service-row reveal" data-service="02">
           <span class="service-no">02</span>
           <h3><span class="phrase">コミュニケーション</span><br><span class="phrase">デザイン</span></h3>
-          <p>PR戦略の策定からメディア露出・SNS施策・インフルエンサー活用まで、マーケティング目標に合わせて実行。</p>
+          <p>PR戦略・企画のプランニングから、メディアやSNS、イベントなどを通じた態度変容まで、マーケティング目標に合わせて実行。</p>
           <span class="service-arrow">↗</span>
         </article>
         <article class="service-row reveal" data-service="03">
@@ -640,15 +642,20 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
           <h2><span class="phrase">コンセプト＆</span><br><span class="phrase">コンテキスト</span><wbr><span class="phrase">デザイン</span></h2>
         </header>
         <div class="detail-content">
-          <p class="detail-lead reveal">界隈と自社をつなぐコンセプト、コンテキストや物語、キーワード、ステートメントの企画開発支援。またそれらを表現する制作物、実現するファクトや取り組み・実態の開発を支援。</p>
+          <p class="detail-lead reveal">界隈と自社をつなぐコンセプト、コンテキストや物語、キーワード、ステートメント、プロジェクトなどの企画開発支援。またそれらを表現する制作物、実現するファクトや取り組み・実態の開発を支援。</p>
           <div class="case-grid">
             <article class="case-card reveal">
               <span>CASE 01</span>
+              <h3><span class="phrase">新たなコンセプトと</span><wbr><span class="phrase">スローガンによる</span><br><span class="phrase">乳がんの早期発見・</span><wbr><span class="phrase">治療の啓発</span></h3>
+              <p>乳がんの早期発見・治療を促進する、新たなコンセプトやスローガンなどを開発。また定期的にきっかけをつくる仕組みづくりや、自治体や企業等での利用促進やメディアを通じた啓発活動を推進。</p>
+            </article>
+            <article class="case-card reveal">
+              <span>CASE 02</span>
               <h3><span class="phrase">猛暑日に</span><wbr><span class="phrase">特別なメニューが</span><br><span class="phrase">登場する</span><wbr><span class="phrase">ショップ企画</span></h3>
               <p>猛暑日になるとすべてが凍ってでてくる氷点下のメニューを企画開発。コンセプトショップで一定期間提供し、PRやSNSなどの発話を促進し、来場に繋げた。</p>
             </article>
             <article class="case-card reveal">
-              <span>CASE 02</span>
+              <span>CASE 03</span>
               <h3><span class="phrase">130団体が共感！</span><wbr><span class="phrase">冬場に需要の落ち込む</span><br><span class="phrase">キャンプ業界の</span><wbr><span class="phrase">需要喚起プロジェクト</span></h3>
               <p>メーカーやキャンプ場、インフルエンサーなど130のパートナーを巻き込み、3年間にわたり展開し、冬キャンプの利用者拡大に繋げた。</p>
             </article>
@@ -673,7 +680,7 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
           <h2><span class="phrase">コミュニケーション</span><br><span class="phrase">デザイン</span></h2>
         </header>
         <div class="detail-content">
-          <p class="detail-lead reveal">効果的なPR戦略の策定、リテナー・プロジェクト形式などでのPR活動の推進支援。TV・ウェブニュースなどのメディア露出、SNSでの発話の促進施策やSNSアカウントの運用、イベントの企画制作、デジタル広告施策などマーケティング目標にあわせて企画し、実行します。</p>
+          <p class="detail-lead reveal">効果的なPR戦略・企画のプランニング、リテナー・プロジェクト形式などでのPR活動の推進支援。TV・ウェブニュースなどのメディア露出、SNSでの発話の促進施策やSNSアカウントの運用、イベントの企画制作、デジタル広告施策などマーケティング目標にあわせて企画し、実行します。</p>
           <div class="case-grid">
             <article class="case-card reveal">
               <span>CASE 01</span>
