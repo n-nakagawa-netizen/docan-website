@@ -124,6 +124,15 @@
     padding: 4px 12px; border-radius: 999px;
   }
 
+  /* about */
+  .about { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .about-item { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; }
+  .about-item h3 { margin: 0 0 8px; font-size: 17px; }
+  .about-item p { margin: 0; font-size: 14px; color: var(--muted); }
+  .about-link { margin: 28px 0 0; font-weight: 700; }
+  .about-link a { color: var(--accent); text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+
   /* how */
   .how-grid { display: grid; grid-template-columns: 1fr 64px 1fr 64px 1fr; align-items: stretch; }
   .node { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 22px; }
@@ -240,7 +249,7 @@
     section { padding: 56px 0; }
     .hero { padding: 48px 0; }
     .hero-grid, .grid-3, .cases-grid { grid-template-columns: 1fr; }
-    .how-grid { grid-template-columns: 1fr; }
+    .how-grid, .about-grid { grid-template-columns: 1fr; }
     .arrow { flex-direction: row; padding: 10px 0; }
     .arrow::before { content: "↓"; }
     .grid-4, .flow { grid-template-columns: repeat(2, 1fr); }
@@ -293,6 +302,29 @@
           <span class="tag">イタリアン</span><span class="tag">BAR</span><span class="tag">おにぎり</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <span class="eyebrow">ABOUT</span>
+      <h2>株式会社どかんは、<span class="nw">PR会社です</span></h2>
+      <p class="lead">ブランドと人の間に「共感」を生み出すPR会社として、企画づくりからメディア・SNSでの発信、事業づくりまでを一貫して手がけています。飲食の領域では、飲食店と企業のコラボアライアンスや、飲食店の開業・メニュー開発の支援も行っています。</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <h3>PRの企画と実行</h3>
+          <p>PR戦略・企画の立案から、TV・ウェブニュースなどのメディア露出、SNS・インフルエンサー施策、イベントまで。飲料ブランドのコンセプトショップでは約300件のメディア露出を獲得しました。</p>
+        </div>
+        <div class="about-item">
+          <h3>飲食領域での経験</h3>
+          <p>代表の中川は、戦略PR会社で食品・飲料などのコミュニケーションを担当したのち、飲食店コラボアライアンスネットワークの企画や、飲食店の開業・メニュー開発の支援に携わってきました。</p>
+        </div>
+        <div class="about-item">
+          <h3>主な取引先</h3>
+          <p>株式会社電通、公益財団法人日本対がん協会、株式会社I-ne、株式会社PKSHA TECHNOLOGY、G.D.inc.、株式会社ファンベースカンパニー 等</p>
+        </div>
+      </div>
+      <p class="about-link"><a href="/" target="_blank" rel="noopener">会社サイトで詳しく見る →</a></p>
     </div>
   </section>
 
@@ -355,14 +387,6 @@
       <p class="lead">店名は伏せ、数字は概数でご紹介しています。</p>
       <div class="cases-grid">
         <div class="case">
-          <div class="kind">鶏料理専門店 × 食品メーカー</div>
-          <h3>期間限定のコラボメニュー</h3>
-          <div class="figs">
-            <div class="fig"><b><small class="approx">約</small>500<small>件</small></b><span>1品の注文件数</span></div>
-            <div class="fig"><b><small class="approx">約</small>170<small>件</small></b><span>メディア露出</span></div>
-          </div>
-        </div>
-        <div class="case">
           <div class="kind">ベーカリー14店舗 × 食品メーカー</div>
           <h3>コラボ商品2品を開発・販売</h3>
           <div class="figs">
@@ -378,6 +402,14 @@
             <div class="fig"><b>多数</b><span>メディア露出</span></div>
           </div>
           <p class="case-note">インフルエンサーや来店客のSNS投稿でも拡散</p>
+        </div>
+        <div class="case">
+          <div class="kind">鶏料理専門店 × 食品メーカー</div>
+          <h3>期間限定のコラボメニュー</h3>
+          <div class="figs">
+            <div class="fig"><b><small class="approx">約</small>500<small>件</small></b><span>1品の注文件数</span></div>
+            <div class="fig"><b><small class="approx">約</small>170<small>件</small></b><span>メディア露出</span></div>
+          </div>
         </div>
       </div>
       <div class="case-types">
@@ -473,6 +505,9 @@
     <dl class="company">
       <dt>会社名</dt><dd>株式会社どかん</dd>
       <dt>所在地</dt><dd>〒359-0037 埼玉県所沢市くすのき台1-13-2 ガーデンシティ所沢2階 BIZcomfort所沢駅前 内</dd>
+      <dt>設立</dt><dd>2024年8月1日</dd>
+      <dt>代表</dt><dd>中川 尚之</dd>
+      <dt>事業</dt><dd>PR活動の企画・実行支援、コンセプト開発支援、SNS運用・インフルエンサーマーケティング ほか</dd>
       <dt>担当</dt><dd>中川</dd>
       <dt>お問い合わせ</dt><dd><a href="mailto:restaurantcollabo@docaninc.com">restaurantcollabo@docaninc.com</a></dd>
     </dl>
