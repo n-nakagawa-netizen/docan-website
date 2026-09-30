@@ -143,13 +143,42 @@ section.s{padding-block:clamp(64px,8vw,104px)}
 .big-quote{font-size:clamp(20px,2.3vw,28px);font-weight:700;line-height:1.7;color:var(--ink)}
 .big-quote b{color:var(--accent);font-weight:700}
 
+/* PRエンジニアリングの3ステップ図 */
+.pe{margin-top:4px}
+.pe-tag{text-align:center;font-size:clamp(17px,2vw,23px);font-weight:700;color:var(--ink);line-height:1.6}
+.pe-flow{position:relative;margin-top:32px}
+.pe-ribbon{position:absolute;left:11%;right:11%;top:22%;width:78%;height:56%;pointer-events:none}
+.pe-ribbon path{fill:none;stroke:url(#pe-grad);stroke-width:30;stroke-linecap:round}
+.pe-ribbon .s1{stop-color:var(--accent);stop-opacity:.40}
+.pe-ribbon .s2{stop-color:var(--accent);stop-opacity:.34}
+.pe-ribbon .s3{stop-color:var(--warm);stop-opacity:.36}
+.pe-ribbon .s4{stop-color:var(--warm);stop-opacity:.52}
+.pe-steps{list-style:none;margin:0;padding:0;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px)}
+.pe-steps li{aspect-ratio:1;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(18px,3vw,44px)}
+.pe-no{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.pe-steps h3{margin-top:4px;font-size:clamp(15px,1.5vw,20px);letter-spacing:.14em;color:var(--ink)}
+.pe-icon{display:block;margin:14px 0 12px;color:var(--accent);line-height:0}
+.pe-steps li:last-child .pe-icon{color:var(--warm-strong)}
+.pe-steps p{font-size:clamp(12px,1.05vw,14px);line-height:1.8}
+@media (max-width:820px){
+  .pe-ribbon{display:none}
+  .pe-steps{grid-template-columns:1fr;gap:14px}
+  .pe-steps li{aspect-ratio:auto;border-radius:var(--r);padding:26px 24px}
+  .pe-steps p{font-size:14px}
+  .pe-br{display:none}
+}
+
 /* definition */
 .def{background:var(--tint);border-radius:var(--r);padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;margin-top:8px}
 @media (max-width:820px){.def{grid-template-columns:1fr}}
 .def .word{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.3;color:var(--ink)}
 .def .reading{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:12px;letter-spacing:.08em}
 .def .pos{display:inline-block;background:var(--surface);border-radius:6px;font-size:11px;padding:2px 8px;margin-right:10px;line-height:1.7;vertical-align:2px}
-.def ol{margin:0;padding-left:1.4em;display:grid;gap:16px}
+.def-lead{margin-top:18px;font-size:15px;color:var(--ink);font-weight:700;line-height:1.8}
+.def-tag{margin-top:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--accent)}
+.def ol{margin:0;padding-left:1.4em;display:grid;gap:22px}
+.def ol li b{display:block;font-size:15px;color:var(--ink);letter-spacing:.02em}
+.def ol li span{display:block;margin-top:8px;font-size:14px;line-height:1.95}
 .def ol li::marker{font-family:var(--f-mono);color:var(--accent);font-weight:700}
 .compare-lead{margin-top:48px;max-width:44em;color:var(--ink)}
 .compare{margin-top:20px;overflow-x:auto;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow-sm);background:var(--surface)}
