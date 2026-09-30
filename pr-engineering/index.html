@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- 先行公開中：検索結果に出さないための指定。本番公開（リリース・広告・営業開始）のタイミングで、この1行を削除する -->
+<meta name="robots" content="noindex,nofollow">
+<title>PRエンジニアリング｜株式会社どかん</title>
+<meta name="description" content="PR会社の実務知見をClaude上で動く手順として実装し、ひとり広報でも、広報の知見がない組織でも、高い品質とスピードで広報を回せる体制をつくる、どかんのPRエンジニアリング。">
+<meta property="og:title" content="PRエンジニアリング｜株式会社どかん">
+<meta property="og:description" content="広報を、仕組みで強くする。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社どかん">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://www.docaninc.com/pr-engineering/">
+<link rel="canonical" href="https://www.docaninc.com/pr-engineering/">
+<meta property="og:image" content="https://www.docaninc.com/pr-engineering/assets/img/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.docaninc.com/pr-engineering/assets/img/ogp.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- GA4（docaninc.com と同じプロパティ）。ローカル確認時のアクセスを計測に混ぜないよう docaninc.com 上でだけ読み込む -->
+<script>
+  if (/(^|\.)docaninc\.com$/.test(location.hostname)) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    var ga = document.createElement("script");
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-6XGNHTK50G";
+    document.head.appendChild(ga);
+    gtag("js", new Date());
+    gtag("config", "G-6XGNHTK50G");
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=20260930b">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="株式会社どかん PRエンジニアリング トップへ"><span class="logo"><img class="logo-symbol" src="assets/img/logo-symbol.png" width="237" height="237" alt=""><img class="logo-word" src="assets/img/logo-word.png" width="477" height="163" alt="株式会社どかん"></span><span class="brand-sub">PR ENGINEERING</span></a>
+    <nav class="nav" aria-label="ページ内">
+      <a href="#about">PRエンジニアリングとは</a>
+      <a href="#approach">進め方</a>
+      <a href="#skills">Skill</a>
+      <a href="#service">サービス</a>
+      <a href="#exec">導入をご検討の方へ</a>
+      <a class="btn btn-primary btn-sm" href="#request">資料請求</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="label">PR Engineering by どかん</p>
+      <h1>広報を、<br><em>仕組み</em>で強くする。</h1>
+      <p class="lead">どかんが提供するのは<strong>PRエンジニアリング</strong>。PR会社として積み上げてきた企画・メディア・発信の実務知見を、Claude上で“動く手順”として実装します。少人数でも広報の品質とスピードを保ち、生まれた時間を「攻めの広報」や関係づくりへ振り向けるための仕組みです。</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#request">サービス資料を請求する <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#about">PRエンジニアリングとは</a>
+      </div>
+      <div class="tags" aria-label="対応領域">
+        <span>企画・戦略</span><span>メディア向けPR</span><span>SNS・オウンド</span><span>イベント</span><span>効果測定</span><span>AI可視性（GEO）</span>
+      </div>
+    </div>
+    <div class="vlabel" aria-hidden="true">PR × ENGINEERING</div>
+  </div>
+</section>
+
+<section class="s" id="pain">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">For in-house PR</p>
+      <div>
+        <h2>広報のAI活用を、<br>事業を動かす一歩へ。</h2>
+        <p class="intro">広報には、事業を前に進める役割がますます求められています。一方で体制は少人数のままという企業も多く、生成AIをどう業務に組み込めば成果につながるのかは、これから形にしていく段階だと思います。</p>
+      </div>
+    </div>
+    <div class="pains">
+      <div class="pain"><q>リリースも、記者対応も、SNSも、社内調整も、ほぼひとりで</q><p>広報・マーケティングを1〜2名で、ほかの業務と兼務しながら担う企業も少なくありません。</p></div>
+      <div class="pain"><q>AIは使っている。でも、何に使えば成果につながるのか</q><p>使い方次第で、発信のスピードや質に差が出やすくなっています。</p></div>
+      <div class="pain"><q>文章は整う。でも、PRとしての判断までは任せられない</q><p>どの切り口なら記事になるか、いつ出すべきか。PR固有の判断は、汎用のAIツールだけでは補えません。</p></div>
+    </div>
+
+    <div class="figs">
+      <div class="fig">
+        <p class="label">生成AIを活用する方針の企業（日本）</p>
+        <p class="num">68.9<small>%</small></p>
+        <p class="cap">「積極的に活用」と「活用する領域を限定して活用」の合計。前年度の49.7%から大きく増えました（大企業74.0%、中堅企業58.1%）。</p>
+      </div>
+      <div class="fig">
+        <p class="label">組織的な取組を行っていない企業（日本）</p>
+        <p class="num">27.0<small>%</small></p>
+        <p class="cap">米国・ドイツ・中国と比べて高い割合です。使う人は増えても、会社の仕組みにはなっていない状態がうかがえます。</p>
+      </div>
+    </div>
+    <p class="src">出典：総務省「令和8年版 情報通信白書」（2026年7月公表）。日本・米国・ドイツ・中国の企業を対象とした調査より</p>
+
+    <p class="note-box">必要なのは、今のやり方をAIに置き換えることではありません。<b>安全に回る基盤を整え、その先の「攻めの広報」まで一緒に考えるパートナー</b>です。</p>
+  </div>
+</section>
+
+<section class="s" id="why">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">Why now</p>
+      <div>
+        <h2>AIが答えるとき、<br>引用元の多くは「ニュース」です。</h2>
+        <p class="intro">生成AIが回答をつくる際に参照する情報源は、その大半が記者の書いた記事や第三者による発信です。AIが答えをつくる時代になっても、メディアに取り上げられることの価値は変わりません。</p>
+      </div>
+    </div>
+    <div class="cite">
+      <div>
+        <div class="figs">
+          <div class="fig">
+            <p class="label">AIの引用元のうち、アーンドメディア</p>
+            <p class="num">84<small>%</small></p>
+            <p class="cap">報道記事など、自社以外の第三者による発信（報道記事は全体の27%）</p>
+            <p class="src">出典：Muck Rack's Generative Pulse「What Is AI Reading?」2026年5月版。ChatGPT・Claude・Geminiの回答に引用された2,500万件以上のリンクを分析</p>
+          </div>
+          <div class="fig">
+            <p class="label">AIの引用元のうち、プレスリリース</p>
+            <p class="num">0.4<small>%</small></p>
+            <p class="cap">AIサービス別で最も高いChatGPTでも1.2%</p>
+            <p class="src">出典：Meltwater「GenAI Lens」による2026年4月の分析。主要8つのLLM・AI検索サービスにおける約535万件の引用を対象。</p>
+          </div>
+        </div>
+        <p class="src fig-note">※2つの調査は、情報源の分類の定義が異なります。<br>※データの引用について、両社より承諾をいただいております。</p>
+      </div>
+      <p class="big-quote">だからこそ大切なのは、発信の量を増やすことよりも、<b>記事になる企画を生み、記者へ届けること</b>。</p>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="about">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">About</p>
+      <div>
+        <h2>PRエンジニアリングという提案</h2>
+        <p class="intro">PRエンジニアリングは、AIだけで完結する仕組みではありません。人とAIが一緒に手を動かし、互いに進化していく（共進化）ための、どかんが提案する進め方です。</p>
+      </div>
+    </div>
+    <div class="pe">
+      <p class="pe-tag">PRを、一人の経験から、<br class="pe-br">進化し続ける仕組みへ。</p>
+      <div class="pe-flow">
+        <svg class="pe-ribbon" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="pe-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop class="s1" offset="0%"></stop>
+              <stop class="s2" offset="52%"></stop>
+              <stop class="s3" offset="57%"></stop>
+              <stop class="s4" offset="100%"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M0 132 C 168 132 168 48 336 48 C 504 48 504 132 666 132 C 834 132 834 48 1000 48"></path>
+        </svg>
+        <ol class="pe-steps">
+          <li>
+            <span class="pe-no">01</span>
+            <h3>DESIGN</h3>
+            <span class="pe-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13" r="8"></circle><circle cx="11" cy="13" r="3.4"></circle><path d="M13.4 10.6 21 3"></path><path d="M17.4 3h3.6v3.6"></path></svg>
+            </span>
+            <p>事業の目標から逆算し、その会社ならではのPRを設計する。</p>
+          </li>
+          <li>
+            <span class="pe-no">02</span>
+            <h3>IMPLEMENT</h3>
+            <span class="pe-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="7" r="2.6"></circle><path d="M2.2 17c0-2.4 1.5-4 3.3-4s3.3 1.6 3.3 4"></path><rect x="15" y="10.4" width="7" height="6" rx="2"></rect><path d="M18.5 7.2v3.2"></path><circle cx="17.2" cy="13.4" r=".8" fill="currentColor" stroke="none"></circle><circle cx="19.8" cy="13.4" r=".8" fill="currentColor" stroke="none"></circle><path d="M11 9.6h2.6M13.6 9.6l-1-1M13.6 14.6H11M11 14.6l1-1"></path></svg>
+            </span>
+            <p>PRの知見をSkill化し、人とAIが協働できる仕組みとして実装する。</p>
+          </li>
+          <li>
+            <span class="pe-no">03</span>
+            <h3>EVOLVE</h3>
+            <span class="pe-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13"></path><path d="M9.5 20v-4.5"></path><path d="M15 20V11"></path><path d="M4.5 9.5 10 6l3.5 2.5L20 3.5"></path><path d="M16.4 3.5H20V7"></path></svg>
+            </span>
+            <p>人の判断とAIの能力を循環させ、変化に合わせて共進化させる。</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="def">
+      <div>
+        <p class="word">PRエンジニアリング</p>
+        <p class="reading"><span class="pos">名</span>PR Engineering</p>
+        <p class="def-lead">企業と社会の関係をつくるPRの仕組みを設計し、運用し、AIも含めて最適化する。</p>
+        <p class="def-tag">Human Communication × AI Optimization</p>
+      </div>
+      <ol>
+        <li><b><em class="en">DESIGN</em>自社ならではのPRの仕組みを設計する</b><span>事業の目標や課題、組織、社会との関係性を踏まえ、その会社だからこそ機能するPRのあり方を設計する。</span></li>
+        <li><b><em class="en">IMPLEMENT</em>人とAIで動く仕組みにする</b><span>PRの知見をAIが再現できる手順（Skill）へ分解し、人が担う判断とAIに任せる仕事を組み合わせて実装する。</span></li>
+        <li><b><em class="en">EVOLVE</em>人とAIが共進化する仕組みへ</b><span>会社の状況や取り組むテーマに応じて仕組みを変え続ける。人の判断がAIに蓄積され、AIが生んだ時間で人は創造的な仕事へ。</span></li>
+      </ol>
+    </div>
+
+    <p class="compare-lead">PR会社の支援も、PRエンジニアリングも、目指すのは事業の目標から逆算した広報の成果です。違いは、その成果を生み出す方法と、ノウハウが蓄積される場所にあります。</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr><th></th><th>汎用AIツール</th><th>PR会社</th><th class="us">PRエンジニアリング（どかん）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>主な役割</th><td>文章作成や情報整理など、幅広い業務の効率化</td><td>専門家による戦略立案・施策の実行と、メディアとのリレーション</td><td class="us">PRの知見を御社のAI環境に実装し、社内で回る仕組みにする</td></tr>
+          <tr><th>力を発揮する場面</th><td>定型的な作業を、すばやく進めたいとき</td><td>高い専門性や、メディアとの関係が求められる施策</td><td class="us">少人数でも、日々の広報を高い品質で回し続けたいとき</td></tr>
+          <tr><th>ノウハウの置き場所</th><td>ツールの機能の中</td><td>専門家の経験と、PR会社の組織の中</td><td class="us">御社のAI環境（Skill・共通ルール）と、広報担当者の中</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">PRエンジニアリングは、PR会社の支援に置き換わるものではありません。日々の広報を社内で回す仕組みを土台に、必要な場面では、どかんの戦略プランニングやPR会社の専門性を組み合わせます。</p>
+  </div>
+</section>
+
+<section class="s" id="approach">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">Approach</p>
+      <div>
+        <h2>事業の目標から逆算して、<br>AIを広報に組み込む。</h2>
+        <p class="intro">PRエンジニアリングは、ツールを入れることから始めません。広報で達成したい事業の目標や、解決したい課題を最初に定め、そこから逆算してAIエージェントの使い方を設計します。業種や商材を問わず使える、2つの進め方があります。</p>
+      </div>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <p class="label">Model case A</p>
+        <h3>目標達成型</h3>
+        <p class="case-ex">例：これまで届いていなかった層に、ブランドを「自分に合うもの」と感じてもらい、ファンと継続的な購入・利用を増やしたい</p>
+        <ol class="steps">
+          <li><b>目標とゴールの姿をそろえる</b><span>ターゲットに起こしてほしい行動と、実現したい状態を具体的にすり合わせる</span></li>
+          <li><b>測る指標を決める</b><span>メディア露出件数、SNSでの言及数、フォロワーや反応の数など</span></li>
+          <li><b>AIの使い方を設計し、運用へ</b><span>施策の運用方針づくりとAIによる半自動化 → Skill化 → 小さく試して日々の運用に移す</span></li>
+        </ol>
+      </article>
+      <article class="case">
+        <p class="label">Model case B</p>
+        <h3>課題解決型</h3>
+        <p class="case-ex">例：発信の遅れや対応漏れ、認知不足、ネガティブな評判、人手不足といった課題を解消したい</p>
+        <ol class="steps">
+          <li><b>課題と解決の姿をそろえる</b><span>優先して取り組む課題と、「何がどう変われば解決と言えるか」を関係者ですり合わせる</span></li>
+          <li><b>測る指標を決める</b><span>対応にかかる時間、対応漏れの件数、ネガティブな言及の推移など</span></li>
+          <li><b>AIの使い方を設計し、運用へ</b><span>ボトルネックの特定 → 業務フローの再設計とAIによる半自動化 → Skill化して定着させる</span></li>
+        </ol>
+      </article>
+    </div>
+    <p class="case-note">※業種・商材を問わない進め方の例です。実際の導入事例ではありません。</p>
+
+    <div class="cover">
+      <div class="cover-head">
+        <div>
+          <h3>広報業務の手順のうち、AIで対応できる割合</h3>
+          <p>AIが担うのは、下書き・調査・集計といった手順の一部です。最終的な確認と判断、社内外の関係構築、一次情報の取得は人が行う前提で試算しています。測定やSNS・Webの運用のような定型業務では割合が高く、経営広報やメディアリレーションズのように関係づくりが問われる領域では低くなります。</p>
+        </div>
+        <p class="cover-avg"><span class="label">全体平均</span><span class="num">48<small>%</small></span></p>
+      </div>
+      <ol class="cover-list" aria-label="業務領域ごとの、業務の手順のうちAIで対応できる割合（試算、高い順・抜粋）">
+          <li><span class="cv-name">効果測定・モニタリング<small>6業務</small></span><span class="cv-v">73%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:73%"></span></span></li>
+          <li><span class="cv-name">SNS<small>10業務</small></span><span class="cv-v">58%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:58%"></span></span></li>
+          <li><span class="cv-name">オウンドメディア・Web<small>8業務</small></span><span class="cv-v">56%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:56%"></span></span></li>
+          <li><span class="cv-name">プレスリリース・情報発信<small>8業務</small></span><span class="cv-v">53%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:53%"></span></span></li>
+          <li><span class="cv-name">PR戦略・企画<small>9業務</small></span><span class="cv-v">51%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:51%"></span></span></li>
+          <li><span class="cv-name">経営広報・IR<small>9業務</small></span><span class="cv-v">41%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:41%"></span></span></li>
+          <li><span class="cv-name">メディアリレーションズ<small>12業務</small></span><span class="cv-v">35%</span><span class="cv-track" aria-hidden="true"><span class="cv-fill" style="width:35%"></span></span></li>
+      </ol>
+      <p class="src">出典：どかん調べ（試算）。広報部門の業務を14の領域・計118業務に分け、業務ごとに手順のボリュームのうちAIエージェントで対応できる割合を試算し、集計したもの。人による最終確認・判断を前提とする（2026年時点の一般的な水準を想定）。全体平均は業務数による加重平均で、14領域すべてを含む。上の一覧は7領域の抜粋。</p>
+    </div>
+
+    <div class="split">
+      <div>
+        <p class="label">AI</p>
+        <h3>手間のかかる作業は、AIで半自動化。</h3>
+        <p class="split-note">社内で回している作業が対象です。外部のパートナーと分担している業務は、これまでどおり組み合わせながら進めます。</p>
+        <ul>
+          <li>プレスリリースの作成、メディアリストの作成・管理</li>
+          <li>配信メールの文面、画像の作成、露出状況の把握</li>
+          <li>SNS・noteの企画・原稿から投稿管理、振り返りまで</li>
+          <li>自社の露出や、他社の成功パターンの収集・分析</li>
+        </ul>
+      </div>
+      <div class="human">
+        <p class="label">People</p>
+        <h3>生まれた時間は、人にしかできない仕事へ。</h3>
+        <ul>
+          <li>社内の関係づくりと、ネタの掘り起こし</li>
+          <li>記者・メディアとの関係づくり</li>
+          <li>取材・撮影などのコンテンツ制作</li>
+          <li>事業の目標につながる、攻めの企画</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="s" id="skills">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">Skill library</p>
+      <div>
+        <h2>ゼロから始めない。<br>積み上げたSkill開発の知見を、<br>御社の広報に。</h2>
+        <p class="intro">どかんは、自社のPR実務の中で60ほどのClaude Skillを開発し、日々の業務で運用しています。リサーチから企画、実行、効果測定までをどう手順に落とし込めば現場で使い続けられるのか。その知見を活かして、御社の業務に合ったSkillを設計・実装します。</p>
+      </div>
+    </div>
+
+    <div class="skillmap">
+      <ol class="sm-flow" aria-label="PR Skillの構成と連携">
+        <li class="sm-node">
+          <p class="sm-no">01</p>
+          <h3>リサーチ・分析</h3>
+          <ul><li>ターゲットインサイト分析</li><li>ソーシャルリスニング・ナラティブ分析</li><li>トレンド・媒体の傾向、類似案件の分析</li><li>ニュースバリュー診断 など</li></ul>
+        </li>
+        <li class="sm-node">
+          <p class="sm-no">02</p>
+          <h3>PR戦略・企画</h3>
+          <ul><li>PR戦略・PR企画、マーケティング戦略の立案</li><li>PRコンセプト・キーワードの開発</li><li>切り口・ストーリーの設計、ファクトの開発</li><li>KGI・KPI、ロードマップの設計 など</li></ul>
+        </li>
+        <li class="sm-node sm-actions">
+          <p class="sm-no">03</p>
+          <h3>施策</h3>
+          <div class="sm-channels">
+            <div><b>アーンドメディア</b><ul><li>プレスリリース・取材依頼などプレス向け資料</li><li>メディア・インフルエンサーのリスト作成・管理 など</li></ul></div>
+            <div><b>オウンドメディア</b><span class="sm-scope">オウンド記事／note／Instagram／X／YouTubeなど</span><ul><li>ネタ出し・スケジュール管理</li><li>原稿作成・投稿管理</li><li>画像・動画制作 など</li></ul></div>
+            <div><b>体験設計</b><ul><li>イベント企画・演出企画</li><li>実施計画の策定・各種リサーチ など</li></ul></div>
+            <div><b>営業・プロジェクトの推進</b><ul><li>事業推進×PR企画の立案・推進</li><li>コンテンツ企画・制作／ツール開発</li><li>プロジェクト企画・事務局業務／コミュニティ運営 など</li></ul></div>
+          </div>
+        </li>
+      </ol>
+      <p class="sm-loop"><span class="sm-loop-mark" aria-hidden="true">↺</span><span><b>効果測定</b>露出一覧・クリッピング報告で結果を測り、次のリサーチ・分析に戻します。回すほど、判断の精度を高めていけます。</span></p>
+    </div>
+
+    <p class="grow-lead">Skillは、つくって終わりではありません。使いながら育てていく前提で設計します。</p>
+    <div class="grow">
+      <div><h3>使いながら直す</h3><p>実際の原稿や、記事・SNSでの反応をもとに、判断の基準を書き足していきます。使うほど、御社らしい判断に近づけていけます。</p></div>
+      <div><h3>環境に届け続ける</h3><p>つくって渡して終わりにせず、御社の環境で最新の状態を保ちます。</p></div>
+      <div><h3>業務が変われば増やす</h3><p>新しい取り組みや体制の変化に合わせて、必要なSkillを足していきます。仕組みも会社と一緒に育ちます。</p></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="s" id="service">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">Service</p>
+      <div>
+        <h2>基盤を整え、<br>攻めに使う。</h2>
+        <p class="intro">まず1〜2ヶ月で、PR業務の基本をClaude上の“再現できる手順”に整え、社内で自走できる広報の体制を立ち上げます。その上で、GEO対策や企画づくりといった「攻めの施策」を継続的に一緒につくっていきます。</p>
+      </div>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="meta"><span class="label">Phase 1</span><span class="en">1–2 months</span></div>
+        <h3>基盤構築</h3>
+        <p class="en">Foundation</p>
+        <p class="phase-lead">PR業務の基本を、Claude上で“再現できる手順”に。効率化と品質の担保が目的です。</p>
+        <ul>
+          <li><b>Claude環境構築</b><span>Team／Enterpriseプランの選定、共通ルール（CLAUDE.md）の設計、権限・アクセス管理の初期設定</span></li>
+          <li><b>PR業務の型化（Skill化）</b><span>情報収集・分析、報道資料の作成、メディア・インフルエンサー・KOLなどのリスト管理、SNS・オウンドメディアの運用、レポーティングなどのルーティン業務を、再現できるSkillの形に</span></li>
+          <li><b>ガバナンス設計</b><span>情報漏えい対策、公開前のチェックフロー、ハルシネーション（AIのもっともらしい誤り）への対策ルールを策定</span></li>
+          <li><b>担当者研修</b><span>実践型のワークショップで、日々の業務にAIを組み込む使い方を身につける</span></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="meta"><span class="label">Phase 2</span><span class="en">ongoing</span></div>
+        <h3>発展的パートナーシップ</h3>
+        <p class="en">Partnership</p>
+        <p class="phase-lead">基盤の上で、攻めの施策を一緒につくり続けます。</p>
+        <ul>
+          <li><b>GEO対策</b><span>ChatGPT・Geminiなどの回答の中で、御社が正しく言及・引用されるための施策と、その計測</span></li>
+          <li><b>企画・キャンペーンの壁打ち</b><span>コンセプト開発やキャンペーン設計を、Claudeを使いながら一緒に磨き込む</span></li>
+          <li><b>Skillの拡充・AIエージェントの高度化</b><span>業務の変化に合わせてSkillを拡張・改善し、リサーチから効果測定までを連携して進められるAIエージェントへ</span></li>
+          <li><b>戦略プランニング・PR会社との連携</b><span>中長期のPR戦略や大型キャンペーン、記者発表会など、より発展的な取り組みには、どかんの戦略プランニングや外部のPR会社のノウハウ・リレーションを組み合わせる</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="deliver">
+      <div>
+        <p class="label">Monthly deliverables</p>
+        <h3>毎月、目に見える成果物を。</h3>
+        <p>仕組みをつくって終わりではなく、その仕組みから生まれたアウトプットまでお届けします。</p>
+      </div>
+      <ul>
+        <li><b>Skill更新レポート</b><span>追加・改善したSkillとその履歴</span></li>
+        <li><b>制作物</b><span>リリース案、メディアリスト、企画書など</span></li>
+        <li><b>AI可視性レポート</b><span>ChatGPT・Gemini・Claude等での言及率や引用の有無を月次で計測</span></li>
+        <li><b>月次戦略ブリーフィング</b><span>目標に対する指標の推移の確認と、議事録・ネクストアクション</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="s exec" id="exec">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">For decision makers</p>
+      <div>
+        <h2>導入をご判断される方へ。<br>安全に始められる設計です。</h2>
+        <p class="intro">AI活用にあたって経営層の方が気にされるのは、情報の取り扱いと責任の所在です。どかんはAIツールを販売する立場ではなく、御社のAI活用を実装する支援者として関わります。</p>
+        <p class="exec-link"><a href="https://www.docaninc.com/" target="_blank" rel="noopener">どかんの会社情報を見る <span class="arrow" aria-hidden="true">↗</span></a></p>
+      </div>
+    </div>
+    <div class="guard">
+      <div><p class="k">CONTRACT</p><h3>Claudeは御社の直接契約</h3><p>Claude（Team／Enterprise等）の契約は、御社とAnthropic社（または正規代理店）との間で結んでいただきます。どかんが再販や代理契約を行うことはありません。</p></div>
+      <div><p class="k">ACCESS</p><h3>最小権限で参加。停止の権限は御社に</h3><p>どかんの担当者は最小権限のメンバーとしてワークスペースに参加します。招待・権限設定・アクセス停止は、すべて御社の管理者が操作できます。機密情報の入力ルールも、基盤構築の段階で整えます。</p></div>
+      <div><p class="k">APPROVAL</p><h3>公開前に、必ず人が確認</h3><p>AIのもっともらしい誤り（ハルシネーション）に備え、公開・配信の前に御社担当者が確認・承認する工程を必ず組み込みます。</p></div>
+      <div><p class="k">VISIBILITY</p><h3>投資の成果が見え、ノウハウが残る</h3><p>Skillの更新履歴、制作物、目標に対する指標の推移を毎月レポートします。磨き込んだSkillは御社の資産として残るため、担当者が替わっても品質を引き継ぎやすくなります。</p></div>
+    </div>
+
+    <div class="roles" role="group" aria-label="AI事業者ガイドラインにおける役割の整理">
+      <div><b>AI開発者・AI提供者</b>Anthropic社</div>
+      <div><b>AI利用者</b>御社（最終判断・公開承認）</div>
+      <div class="us"><b>実装支援</b>どかん（御社側で設計と運用を支援）</div>
+    </div>
+    <p class="roles-cap">経済産業省・総務省「AI事業者ガイドライン」の役割区分（AI開発者・AI提供者・AI利用者）を参考にした整理。どかんは、AI利用者である御社の側で、設計と伴走を行います。</p>
+  </div>
+</section>
+
+<section class="s" id="process">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">Process</p>
+      <div><h2>ご相談から運用まで</h2></div>
+    </div>
+    <ol class="flow">
+      <li><h3>ヒアリング</h3><p class="d">Listen</p><p>広報の体制と、事業の目標・課題をうかがいます。</p></li>
+      <li><h3>ゴール設定</h3><p class="d">Goal</p><p>何ヶ月で何を実現するかを決め、測る指標をそろえます。</p></li>
+      <li><h3>ロードマップ策定</h3><p class="d">Roadmap</p><p>月ごとの成果物まで具体化してから、実行に入ります。</p></li>
+      <li><h3>基盤構築</h3><p class="d">Foundation · 1–2ヶ月</p><p>環境構築、Skill化、ガバナンス設計、研修。</p></li>
+      <li><h3>伴走</h3><p class="d">Partnership · 継続</p><p>PR実務を共同で推進し、仕組みを育てます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="label">FAQ</p>
+      <div><h2>よくあるご質問</h2></div>
+    </div>
+    <div class="faq">
+      <details><summary>広報担当が1名だけでも依頼できますか？</summary><p>はい、可能です。むしろ少人数の広報体制こそ、仕組みで回す効果が大きいと考えています。担当者の方が日常業務の中で無理なく使えるよう設計します。</p></details>
+      <details><summary>成果はどのように確認できますか？</summary><p>導入の最初に、事業の目標または課題と、それを測る指標（メディア露出件数、SNSでの言及数、対応にかかる時間など）を御社と一緒に決めます。毎月のレポートで進捗を確認しながら、Skillや施策を改善していきます。</p></details>
+      <details><summary>社内の情報をAIに入れても大丈夫でしょうか？</summary><p>基盤構築の段階で、入力してよい情報の範囲や確認手順をガバナンスとして定めます。公開前には必ず御社担当者が承認するフローを組み込みます。</p></details>
+      <details><summary>費用はどのくらいかかりますか？</summary><p>ご支援の範囲や期間によって異なります。プラン構成はサービス資料でご案内していますので、まずは資料をご覧ください。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="request">
+  <div class="wrap request">
+    <div>
+      <p class="label">Request</p>
+      <h2>サービス資料の<br>ご請求</h2>
+      <p class="request-lead">社内検討にそのままお使いいただける資料です。導入の背景から支援内容、進め方までをまとめています。</p>
+      <ul class="toc">
+        <li>AI時代の広報を取り巻く環境</li>
+        <li>PRエンジニアリングという提案</li>
+        <li>目標達成型・課題解決型の進め方</li>
+        <li>安全に導入するための体制</li>
+        <li>プラン構成と導入の流れ</li>
+      </ul>
+      <div class="doc" aria-hidden="true">
+        <span class="label">Service Guide</span>
+        <p class="t">広報を、仕組みで強くする。<br>PRエンジニアリングのご案内</p>
+        <div class="f"><span>株式会社どかん</span><span>PDF</span></div>
+      </div>
+    </div>
+    <!-- LP専用の Formspree フォーム。資料は申込内容（同業でないか）を確認してから担当者がメールで送る -->
+    <form id="request-form" action="https://formspree.io/f/xbglwqbq" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="【PRエンジニアリングLP】サービス資料のご請求">
+      <input type="hidden" name="source" value="pr-engineering-lp">
+      <div class="hp" aria-hidden="true"><label for="f-gotcha">この欄は入力しないでください</label><input id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      <div class="row2">
+        <div class="field"><label for="f-company">会社名<span class="req">必須</span></label><input id="f-company" name="company" autocomplete="organization" required data-label="会社名"></div>
+        <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input id="f-name" name="name" autocomplete="name" required data-label="お名前"></div>
+      </div>
+      <div class="field"><label for="f-email">会社のメールアドレス<span class="req">必須</span></label><input id="f-email" name="email" type="email" autocomplete="email" required data-label="会社のメールアドレス"></div>
+      <div class="row2">
+        <div class="field"><label for="f-role">お立場</label>
+          <select id="f-role" name="role"><option value="">選択してください</option><option>広報・PR担当</option><option>マーケティング担当</option><option>広報・マーケティング責任者</option><option>経営者・役員</option><option>その他</option></select></div>
+        <div class="field"><label for="f-team">広報の体制</label>
+          <select id="f-team" name="team"><option value="">選択してください</option><option>1名</option><option>2〜3名</option><option>4名以上</option><option>専任なし（兼務）</option></select></div>
+      </div>
+      <div class="consent"><input id="f-consent" name="consent" type="checkbox" value="同意する" required data-label="プライバシーポリシーへの同意"><label for="f-consent"><a href="https://www.docaninc.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する<span class="req">必須</span></label></div>
+      <button class="btn btn-primary btn-submit" type="submit">資料を請求する</button>
+      <p class="fine">ご入力いただいた情報は、資料の送付およびサービスに関するご案内にのみ利用します（<a href="https://www.docaninc.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>）。</p>
+      <p class="fine">※お申し込み内容を確認のうえ、担当者より資料をメールでお送りします。競合他社など、どかんが適切ではないと判断した場合には、ご提供をお控えすることがあります。</p>
+      <p class="toast" id="request-msg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links" aria-label="会社情報">
+      <a href="https://www.docaninc.com/" target="_blank" rel="noopener">株式会社どかん <span class="arrow" aria-hidden="true">↗</span></a>
+      <a href="https://www.docaninc.com/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+    </nav>
+    <span>Claudeは Anthropic PBC の商標です。そのほか記載の会社名・製品名は、各社の商標または登録商標です。</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
