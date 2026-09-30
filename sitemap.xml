@@ -5,9 +5,11 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- 先行公開中のため、いったん外してある。本番公開のタイミングで戻す
   <url>
     <loc>https://docaninc.com/pr-engineering/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
 </urlset>
