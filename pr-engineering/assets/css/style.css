@@ -13,14 +13,14 @@ img{max-width:100%}
   --body:#41525E;
   --muted:#6F818D;
   --line:#E3EDF1;
-  --accent:#1E7F95;
-  --accent-strong:#15697C;
-  --accent-soft:#E6F4F7;
+  --accent:#0B4FD8;
+  --accent-strong:#0A45BC;
+  --accent-soft:#E7EEFD;
   --warm:#F08A24;
   --warm-strong:#DC7712;
   --warm-soft:#FDF0E1;
   --on-accent:#FFFFFF;
-  --wave:#9CCBD8;
+  --wave:#A9C2F5;
   --shadow:0 1px 2px rgba(20,35,46,.04), 0 10px 28px rgba(20,35,46,.07);
   --shadow-sm:0 1px 2px rgba(20,35,46,.05), 0 4px 12px rgba(20,35,46,.05);
   --r:16px;
@@ -34,9 +34,9 @@ img{max-width:100%}
   :root{
     --ground:#101A21; --tint:#152229; --tint-2:#1B2B34; --surface:#182731;
     --ink:#EAF2F5; --body:#BCCAD2; --muted:#8B9DA8; --line:#2A3A45;
-    --accent:#6FC0D4; --accent-strong:#8FD3E4; --accent-soft:#1B3540;
+    --accent:#7CA6FF; --accent-strong:#9CBCFF; --accent-soft:#182A4D;
     --warm:#F0A45C; --warm-strong:#FFB258; --warm-soft:#3A2A16;
-    --on-accent:#0C1418; --wave:#3A6675;
+    --on-accent:#0B1A33; --wave:#2E4A80;
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
     --shadow-sm:0 1px 2px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.28);
   }
@@ -88,12 +88,13 @@ a{color:inherit}
 #wave{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:center;gap:clamp(24px,4vw,48px)}
 .hero-kv{justify-self:end}
-.hero-kv img{display:block;width:100%;max-width:400px;height:auto;mix-blend-mode:multiply}
+.hero-kv img{display:block;width:100%;max-width:400px;height:auto}
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr}
   .hero-kv{order:-1;max-width:300px;justify-self:start}
 }
-.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,6.2vw,72px);line-height:1.3;letter-spacing:0;margin-top:24px}
+.hero-en{font-family:"Inter",var(--f-display);font-weight:900;font-size:clamp(26px,3.2vw,42px);line-height:1.04;letter-spacing:-.025em;color:var(--ink)}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,5.6vw,64px);line-height:1.3;letter-spacing:0;margin-top:22px}
 .hero h1 em{font-style:normal;position:relative;white-space:nowrap;color:var(--accent)}
 .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.18em;background:var(--warm);opacity:.28;border-radius:999px}
 .hero .lead{max-width:34em;margin-top:28px;font-size:clamp(16px,1.5vw,18px);color:var(--body)}
