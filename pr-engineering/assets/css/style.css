@@ -170,6 +170,7 @@ section.s{padding-block:clamp(64px,8vw,104px)}
 }
 
 .pe + .def{margin-top:32px}
+.pe + .elements{margin-top:32px}
 
 /* 仕組みを構成する3つの要素 */
 .elements{margin-top:28px;padding:26px clamp(20px,3vw,30px);background:var(--tint);border-radius:var(--r)}
@@ -187,6 +188,7 @@ section.s{padding-block:clamp(64px,8vw,104px)}
 .def .reading{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:12px;letter-spacing:.08em}
 .def .pos{display:inline-block;background:var(--surface);border-radius:6px;font-size:11px;padding:2px 8px;margin-right:10px;line-height:1.7;vertical-align:2px}
 .def-lead{margin-top:18px;font-size:15px;color:var(--ink);font-weight:700;line-height:1.8}
+.s-head .def-tag{margin-top:14px}
 .def-tag{margin-top:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--accent)}
 .def ol{margin:0;padding-left:1.4em;display:grid;gap:22px}
 .def ol li b{display:block;font-size:15px;color:var(--ink);letter-spacing:.02em}
