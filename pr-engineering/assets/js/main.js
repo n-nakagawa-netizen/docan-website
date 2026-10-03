@@ -60,7 +60,10 @@
   });
 
   // Wave canvas — ripple contour lines (波及)
-  var hero=document.querySelector(".hero"), cv=document.getElementById("wave"), ctx=cv.getContext("2d");
+  // キービジュアルを置いた場合は canvas がないので、ここから先は動かさない
+  var hero=document.querySelector(".hero"), cv=document.getElementById("wave");
+  if(!cv || !hero) return;
+  var ctx=cv.getContext("2d");
   var reduceMq=window.matchMedia("(prefers-reduced-motion: reduce)");
   var darkMq=window.matchMedia("(prefers-color-scheme: dark)");
   var w,h,dpr,t=0,col,raf=0,visible=true;
