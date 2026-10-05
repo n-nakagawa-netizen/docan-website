@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://docaninc.com/sitemap.xml
+Sitemap: https://www.docaninc.com/sitemap.xml
