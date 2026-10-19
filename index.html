@@ -1073,8 +1073,9 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
   const grid = document.getElementById('newsGrid');
   if (!grid) return;
 
-  const RSS_URL = 'https://note.com/docan_inc/rss';
-  const API_URL = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL);
+  // 自前の中継（api/news.js）がnoteのRSSを取得して返す。
+  // 以前は api.rss2json.com を使っていたが、そこが止まるとNEWS欄が消えるため切り替えた。
+  const API_URL = '/api/news';
 
   const fmt = (dateStr) => {
     const d = new Date(dateStr);
