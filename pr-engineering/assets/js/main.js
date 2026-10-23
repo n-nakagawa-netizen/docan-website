@@ -7,6 +7,44 @@
     a.addEventListener("click",function(){ track("cta_click",{cta_text:a.textContent.trim()}); });
   });
 
+  // どこまで読まれているかの計測（GA4）。個人を特定する情報は送らない
+  // ・section_view：各セクションが画面に入ったら1回だけ。どのセクションで読むのをやめたかが分かる
+  // ・scroll_depth：ページ全体の25/50/75/100%到達
+  var SECTION_NAMES = {
+    pain:"01 課題", why:"02 なぜ今", about:"03 提案", approach:"04 進め方",
+    skills:"05 Skill", service:"06 サービス", exec:"07 導入のご判断",
+    request:"08 資料請求", faq:"09 よくあるご質問"
+  };
+  if(window.IntersectionObserver){
+    var seen={};
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var id=e.target.id;
+        if(!e.isIntersecting || seen[id]) return;
+        seen[id]=1;
+        io.unobserve(e.target);
+        track("section_view",{section_id:id, section_name:SECTION_NAMES[id]||id});
+      });
+    // 画面の上から6割の位置まで来たら「読んだ」とみなす（通り過ぎただけでは数えない）
+    },{threshold:0, rootMargin:"0px 0px -40% 0px"});
+    document.querySelectorAll("main section[id]").forEach(function(s){ io.observe(s); });
+  }
+  var depthHit={}, depthTimer=null;
+  function checkDepth(){
+    var d=document.documentElement;
+    var total=d.scrollHeight-window.innerHeight;
+    if(total<=0) return;
+    var pct=(d.scrollTop||document.body.scrollTop)/total*100;
+    [25,50,75,100].forEach(function(m){
+      if(!depthHit[m] && pct>=m-0.5){ depthHit[m]=1; track("scroll_depth",{percent:m}); }
+    });
+  }
+  window.addEventListener("scroll",function(){
+    if(depthTimer) return;
+    depthTimer=setTimeout(function(){ depthTimer=null; checkDepth(); },300);
+  },{passive:true});
+  checkDepth();
+
   // 資料請求フォーム（Formspree へ送信。docaninc.com のお問い合わせと同じ仕組み）
   var f=document.getElementById("request-form"), msg=document.getElementById("request-msg");
   var submitBtn=f.querySelector('button[type="submit"]');
