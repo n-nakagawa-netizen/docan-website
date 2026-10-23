@@ -508,6 +508,16 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
   gtag('js', new Date());
   gtag('config', 'G-6XGNHTK50G');
 </script>
+<!-- Microsoft Clarity（ヒートマップ・セッション録画）。ローカル確認を計測に混ぜないよう docaninc.com 上でだけ読み込む -->
+<script>
+  if (/(^|\.)docaninc\.com$/.test(location.hostname)) {
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z22ms6tdtg");
+  }
+</script>
 </head>
 <body>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
