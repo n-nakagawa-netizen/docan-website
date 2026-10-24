@@ -33,7 +33,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@800;900&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f7f5f0;
@@ -297,6 +297,129 @@
     .company dt { margin-top: 8px; }
     .hero-actions .btn { width: 100%; }
     header.top .btn.small { padding: 8px 14px; }
+  }
+
+  /* ============================================================
+     強調レイヤー（PRエンジニアリングLPのデザイン手法を参考）
+     上のスタイルに重ねるだけ。文言・HTML構造は変えていない。
+     1. 見出しを極太（900）で大きく、本文は細いまま → メリハリ
+     2. セクション名を巨大な背景文字（ゴースト）として敷く
+     3. 小ラベルは等幅フォントで字間を広く
+     4. 数字を主役サイズまで拡大
+     5. 節目のセクションをベタ面（濃色）にして白抜き
+     ============================================================ */
+  :root {
+    --f-impact: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --f-en: "Inter", "Noto Sans JP", sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --deep: #1f2a27;
+    --ghost-ink: rgba(31, 42, 39, .05);
+    --shadow-sm: 0 1px 2px rgba(31,42,39,.05), 0 6px 16px rgba(31,42,39,.06);
+    --shadow: 0 1px 2px rgba(31,42,39,.05), 0 14px 32px rgba(31,42,39,.09);
+    --max: 1180px;
+  }
+  body { color: #47524e; line-height: 1.9; }
+
+  /* 1. 見出し */
+  h1, h2 { font-family: var(--f-impact); font-weight: 900; letter-spacing: -.015em; color: var(--ink); }
+  h2 { font-size: clamp(29px, 4.6vw, 52px); line-height: 1.32; margin-bottom: 18px; }
+  h3 { font-weight: 700; }
+  .lead { font-size: clamp(15px, 1.4vw, 17px); max-width: 42em; margin-bottom: clamp(36px, 4.4vw, 56px); }
+  section { padding: clamp(72px, 9vw, 120px) 0; }
+
+  /* 2. ゴースト文字（各セクションの英字ラベルをそのまま大きく敷く） */
+  section:not(.hero) { position: relative; overflow: hidden; }
+  section:not(.hero) > .wrap { position: relative; }
+  section:not(.hero):not(.cta) > .wrap { padding-top: clamp(30px, 4.6vw, 64px); }
+  section:not(.hero):not(.cta) { padding-top: clamp(48px, 6vw, 84px); }
+  section:not(.hero):not(.cta) > .wrap::before {
+    content: var(--ghost, "");
+    position: absolute; left: 14px; top: 0; transform: translateY(-38%);
+    font-family: var(--f-en); font-weight: 900;
+    font-size: clamp(56px, 12vw, 164px); line-height: 1; letter-spacing: -.04em;
+    color: var(--ghost-ink); white-space: nowrap; pointer-events: none; z-index: 0;
+  }
+  section > .wrap > *, .designer-grid > * { position: relative; z-index: 1; }
+  #worry    { --ghost: "ISSUE"; }
+  #designer { --ghost: "PLANNING"; }
+  #how      { --ghost: "HOW IT WORKS"; }
+  #shops    { --ghost: "SHOPS"; }
+  #types    { --ghost: "COLLABORATION"; }
+  #reasons  { --ghost: "WHY DOCAN"; }
+  #cases    { --ghost: "CASES"; }
+  #scope    { --ghost: "WHAT WE DO"; }
+  #planner  { --ghost: "FOR PLANNERS"; }
+  #flow     { --ghost: "FLOW"; }
+  #faq      { --ghost: "FAQ"; }
+
+  /* 3. 小ラベル */
+  .eyebrow { font-family: var(--f-mono); font-weight: 500; font-size: 12px; letter-spacing: .2em; margin-bottom: 14px; }
+  .eyebrow::before { content: ""; display: inline-block; width: 28px; height: 2px; background: currentColor; vertical-align: middle; margin: -3px 12px 0 0; }
+  .type .no { font-family: var(--f-mono); font-size: 13px; }
+
+  /* ヘッダー・ボタン */
+  header.top .wrap { height: 68px; }
+  .logo { font-family: var(--f-impact); font-size: 20px; }
+  .logo small { font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; padding-left: 12px; border-left: 1px solid var(--line); }
+  .btn { font-family: var(--f-impact); font-weight: 900; letter-spacing: .03em; padding: 17px 32px; }
+  .btn.small { font-size: 13px; padding: 9px 18px; }
+
+  /* ヒーロー */
+  .hero { padding: clamp(64px, 8vw, 112px) 0 clamp(64px, 7vw, 96px); background: linear-gradient(165deg, #f7e3dc 0%, var(--bg) 62%); }
+  .hero h1 { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.22; letter-spacing: -.02em; margin-bottom: 26px; }
+  .hero h1 em { position: relative; z-index: 0; }
+  .hero h1 em::after { content: ""; position: absolute; left: 0; right: 0; bottom: .05em; height: .2em; background: var(--accent); opacity: .18; border-radius: 999px; z-index: -1; }
+  .for-whom span { font-family: var(--f-impact); font-weight: 700; letter-spacing: .04em; padding: 6px 14px; border-radius: 999px; }
+  .hero p.hero-planner { font-size: clamp(16px, 1.5vw, 18px); padding: 14px 18px; border-left-width: 5px; }
+  .hero p.hero-planner b { font-family: var(--f-impact); }
+  .stat-card { border-radius: 24px; padding: 34px 30px; box-shadow: var(--shadow); border: 0; }
+  .stat-card .label { font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .12em; }
+
+  /* 4. 数字を主役に */
+  .stat-row b { font-family: var(--f-en); font-weight: 900; font-size: clamp(64px, 7.4vw, 96px); line-height: 1; letter-spacing: -.04em; }
+  .stat-row span { font-family: var(--f-impact); font-weight: 900; font-size: 20px; }
+  .fig b { font-family: var(--f-en); font-weight: 900; font-size: clamp(40px, 4.4vw, 54px); letter-spacing: -.035em; line-height: 1.05; }
+  .fig b small { font-family: var(--f-impact); font-weight: 900; }
+  .reason .num { width: auto; height: auto; background: none; border-radius: 0; color: var(--accent); font-family: var(--f-en); font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -.04em; margin-bottom: 12px; display: block; }
+  .flow li::before { font-family: var(--f-en); font-size: 13px; letter-spacing: .12em; }
+
+  /* カード：影と上辺のアクセントでメリハリ */
+  .worry, .node, .type, .reason, .case, .flow li, details { box-shadow: var(--shadow-sm); }
+  .worry { font-family: var(--f-impact); font-size: 17px; background: var(--surface); }
+  .worry-answer { font-family: var(--f-impact); font-weight: 900; font-size: clamp(17px, 1.9vw, 22px); padding: 28px 30px; border-radius: 18px; }
+  .type { border-top: 5px solid var(--accent); }
+  .type h3 { font-family: var(--f-impact); font-weight: 900; font-size: clamp(20px, 2vw, 24px); }
+  .reason { border-top: 3px solid var(--accent); }
+  .reason h3, .case h3, .node h3, .flow h3, .scope-item h3, .planner-item h3 { font-family: var(--f-impact); font-weight: 900; }
+  .reason h3 { font-size: clamp(18px, 1.8vw, 21px); }
+  .case { border-top: 5px solid var(--sub); }
+  .node.center { box-shadow: var(--shadow); }
+  .node.center h3 { font-size: 20px; }
+  .scope-item { border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; }
+  summary { font-family: var(--f-impact); font-size: 16px; }
+  summary::before { font-family: var(--f-en); font-weight: 900; }
+
+  /* 5. ベタ面：お店のセクションを濃色にして白抜き */
+  #shops { background: var(--deep); color: rgba(255,255,255,.82); border: 0; --ghost-ink: rgba(255,255,255,.06); }
+  #shops h2 { color: #fff; }
+  #shops .lead { color: rgba(255,255,255,.78); }
+  #shops .eyebrow { color: #f3b8a8; }
+  #shops .shop { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-top: 4px solid var(--accent); box-shadow: none; }
+  #shops .shop h3 { color: #fff; font-family: var(--f-impact); font-weight: 900; font-size: 17px; }
+  #shops .shop-kind { background: rgba(255,255,255,.12); color: #f3d3c9; }
+  #shops .note { color: rgba(255,255,255,.55); }
+
+  #designer { --ghost-ink: rgba(255,255,255,.09); }
+  #designer h2 { color: #fff; }
+  #designer .designer-points b { font-family: var(--f-impact); font-weight: 900; }
+  #planner { --ghost-ink: rgba(255,255,255,.07); }
+  #planner h2 { color: #fff; }
+  .cta h2 { color: #fff; font-size: clamp(28px, 4.4vw, 50px); }
+
+  @media (max-width: 600px) {
+    section:not(.hero):not(.cta) > .wrap::before { left: 8px; font-size: clamp(44px, 15vw, 72px); }
+    .reason .num { font-size: 46px; }
+    .hero h1 { font-size: 29px; }
   }
 </style>
 <!-- Microsoft Clarity（ヒートマップ・セッション録画）。ローカル確認を計測に混ぜないよう docaninc.com 上でだけ読み込む -->
