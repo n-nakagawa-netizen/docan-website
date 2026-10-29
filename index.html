@@ -489,6 +489,58 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
   color: var(--muted);
   grid-column: 1 / -1;
 }
+/* お知らせ（note記事の上）。項目は index.html の .topics に直接書き足す */
+.topics {
+  list-style: none;
+  margin: 0 0 clamp(56px, 6vw, 80px);
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.topics li { border-bottom: 1px solid var(--line); }
+.topics a,
+.topics .topics-item {
+  display: grid;
+  grid-template-columns: 124px minmax(0,1fr) 24px;
+  gap: 0 28px;
+  align-items: baseline;
+  padding: 24px 6px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.topics a { transition: background .3s ease; }
+.topics a:hover { background: rgba(255,255,255,.7); }
+.topics-date {
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.topics-title {
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 650;
+  line-height: 1.7;
+  letter-spacing: -.02em;
+}
+.topics-ext { font-size: 15px; color: var(--muted); justify-self: end; }
+.news-sub {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+.news-sub-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--muted);
+}
+@media (max-width: 640px) {
+  .topics a,
+  .topics .topics-item { grid-template-columns: minmax(0,1fr) 24px; gap: 8px 14px; padding: 20px 2px; }
+  .topics-date { grid-column: 1 / -1; }
+}
 @media (max-width: 900px) {
   .news-grid { grid-template-columns: 1fr; }
   .news-header { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -832,6 +884,27 @@ footer { margin-top: auto; padding-top: 90px; display: flex; align-items: end; j
           <p class="section-label">NEWS</p>
           <h2>最新情報</h2>
         </div>
+      </div>
+
+      <!-- お知らせ。新しいものを上に。リンクがない項目は <a> ではなく <div class="topics-item"> にする -->
+      <ul class="topics reveal">
+        <li>
+          <div class="topics-item">
+            <span class="topics-date">2026.10.29</span>
+            <span class="topics-title">飲食店コラボアライアンスが750店に拡大しました</span>
+          </div>
+        </li>
+        <li>
+          <a href="https://prtimes.jp/main/html/rd/p/000000001.000192042.html" target="_blank" rel="noopener">
+            <span class="topics-date">2026.10.05</span>
+            <span class="topics-title">PR会社の実務知見をAIに実装する「PRエンジニアリング」の提供を開始しました</span>
+            <span class="topics-ext" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="news-sub reveal">
+        <p class="news-sub-label">note</p>
         <a class="news-link-all" href="https://note.com/docan_inc" target="_blank" rel="noopener">note をすべて見る ↗</a>
       </div>
       <div class="news-grid" id="newsGrid">
