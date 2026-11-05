@@ -29,6 +29,41 @@
     },{threshold:0, rootMargin:"0px 0px -40% 0px"});
     document.querySelectorAll("main section[id]").forEach(function(s){ io.observe(s); });
   }
+  // 追従CTA：ヒーローを過ぎたら出し、資料請求セクションが見えたら引っ込める
+  // （資料請求まで到達するのが全体の3割ほどだったため、途中でも請求できるようにする）
+  var sticky=document.getElementById("stickyCta");
+  if(sticky){
+    var hero=document.querySelector(".hero"), request=document.getElementById("request");
+    // 位置は先に測っておく。スクロール中は scrollY を読むだけにして、毎回の再計算を避ける
+    var heroBottom=0, reqTop=Infinity;
+    function measureSticky(){
+      var y=window.scrollY||document.documentElement.scrollTop||0;
+      heroBottom = hero ? hero.getBoundingClientRect().bottom+y : 0;
+      reqTop = request ? request.getBoundingClientRect().top+y : Infinity;
+    }
+    function syncSticky(){
+      var y=window.scrollY||document.documentElement.scrollTop||0;
+      var show = y>heroBottom && (y+window.innerHeight)<reqTop;
+      if(show){
+        if(sticky.hidden){
+          sticky.hidden=false;
+          void sticky.offsetWidth;   // 表示に切り替えた直後にアニメーションさせるための再計算
+        }
+        sticky.classList.add("is-in");
+      }else{
+        sticky.classList.remove("is-in");
+      }
+    }
+    sticky.addEventListener("transitionend",function(){
+      if(!sticky.classList.contains("is-in")) sticky.hidden=true;
+    });
+    window.addEventListener("scroll",syncSticky,{passive:true});
+    window.addEventListener("resize",function(){ measureSticky(); syncSticky(); });
+    window.addEventListener("load",function(){ measureSticky(); syncSticky(); });
+    measureSticky();
+    syncSticky();
+  }
+
   var depthHit={}, depthTimer=null;
   function checkDepth(){
     var d=document.documentElement;
